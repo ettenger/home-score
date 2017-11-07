@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
-import { UserService } from './services';
+import { ApiService, EnergyMetricsService, UserService } from './services';
 
 
 @NgModule({
@@ -16,6 +16,8 @@ import { UserService } from './services';
     BrowserModule
   ],
   providers: [
+    ApiService,
+    EnergyMetricsService,
     UserService
   ],
   bootstrap: [AppComponent]
