@@ -5,8 +5,8 @@
         <span class="navbar-brand">HomeScore</span>
       </div>
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a>Log out</a>
+          <li *ngIf="userService.isLoggedIn()">
+            <a (click)="logout()">Log out</a>
           </li>
         </ul>
     </div>
