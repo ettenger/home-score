@@ -7,6 +7,9 @@ import { DailyUsage } from './daily-usage';
 
 @Injectable()
 export class EnergyMetricsService {
+  public energySummary: EnergySummary;
+  public dailyUsageData: DailyUsage[];
+
   constructor(
     private apiService: ApiService,
     private userService: UserService
@@ -14,12 +17,12 @@ export class EnergyMetricsService {
 
   getSummary(): Observable<EnergySummary> {
     return this.apiService.get(`${this.userService.userId}/summary`)
-      .map(res => new EnergySummary(res));
+      .map(res => this.energySummary = new EnergySummary(res));
   }
 
   getDailyUsage(): Observable<DailyUsage[]> {
     return this.apiService.get(`${this.userService.userId}/energy/usage/daily`)
-      .map(res => res['daily_energy_usage']);
+      .map(res => this.dailyUsageData = res['daily_energy_usage']);
   }
 
 }
