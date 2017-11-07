@@ -1,3 +1,3 @@
 export { ApiService } from './api/api.service';
-export { EnergyMetricsService } from './energy-metrics/energy-metrics.service';
+export * from './energy-metrics';
 export { UserService } from './user/user.service';
