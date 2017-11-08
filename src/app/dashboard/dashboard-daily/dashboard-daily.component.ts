@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EnergyMetricsService, DailyUsage} from '../../services';
+import { EnergyMetricsService, EnergyUsageTimeseries} from '../../services';
 
 @Component({
   selector: 'app-dashboard-daily',
@@ -7,12 +7,12 @@ import { EnergyMetricsService, DailyUsage} from '../../services';
   styleUrls: ['./dashboard-daily.component.css']
 })
 export class DashboardDailyComponent implements OnInit {
-  public dailyUsageData: DailyUsage[];
+  public energyUsageTimeseries: EnergyUsageTimeseries;
 
   constructor(private energyMetricsService: EnergyMetricsService) { }
 
   ngOnInit() {
-    this.dailyUsageData = this.energyMetricsService.dailyUsageData;
+    this.energyUsageTimeseries = this.energyMetricsService.energyUsageTimeseries;
   }
 
 }

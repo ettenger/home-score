@@ -3,12 +3,12 @@ import { Observable } from 'rxjs/Rx';
 import { ApiService } from '../api/api.service';
 import { UserService } from '../user/user.service';
 import { EnergySummary } from './energy-summary';
-import { DailyUsage } from './daily-usage';
+import { EnergyUsageTimeseries } from './energy-usage-timeseries';
 
 @Injectable()
 export class EnergyMetricsService {
   public energySummary: EnergySummary;
-  public dailyUsageData: DailyUsage[];
+  public energyUsageTimeseries: EnergyUsageTimeseries;
 
   constructor(
     private apiService: ApiService,
@@ -20,9 +20,9 @@ export class EnergyMetricsService {
       .map(res => this.energySummary = new EnergySummary(res));
   }
 
-  getDailyUsage(): Observable<DailyUsage[]> {
+  getDailyUsage(): Observable<EnergyUsageTimeseries> {
     return this.apiService.get(`${this.userService.userId}/energy/usage/daily`)
-      .map(res => this.dailyUsageData = res['daily_energy_usage']);
+      .map(res => this.energyUsageTimeseries = new EnergyUsageTimeseries(res['daily_energy_usage']));
   }
 
 }
