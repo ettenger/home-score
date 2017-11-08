@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardSummaryComponent } from './dashboard/dashboard-summary/dashboard-summary.component';
+import { DashboardDailyComponent } from './dashboard/dashboard-daily/dashboard-daily.component';
 import { LoginComponent } from './login/login.component';
 
 import { ApiService, DashboardResolverService, EnergyMetricsService, UserService } from './services';
@@ -13,7 +15,12 @@ import { ApiService, DashboardResolverService, EnergyMetricsService, UserService
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent,
-    resolve: { dashboardData: DashboardResolverService }
+    resolve: { dashboardData: DashboardResolverService },
+    children: [
+      { path: 'summary', component: DashboardSummaryComponent },
+      { path: 'daily', component: DashboardDailyComponent },
+      { path: '', redirectTo: 'summary', pathMatch: 'full' },
+    ]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
@@ -22,7 +29,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    DashboardSummaryComponent,
+    DashboardDailyComponent
   ],
   imports: [
     BrowserModule,
