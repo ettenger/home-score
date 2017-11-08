@@ -11,6 +11,7 @@ export class UserService {
   // Simulating some async call to authenticate
   login(userId: string): Observable<any> {
     if (this.validUserIds.includes(userId)) {
+      this.userId = userId;
       return Observable.of({loggedIn: true});
     } else {
       return Observable.throw(new Error('Sorry, we don\'t recognize that account number'));

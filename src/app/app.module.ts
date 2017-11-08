@@ -5,19 +5,24 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 
-import { ApiService, EnergyMetricsService, UserService } from './services';
+import { ApiService, DashboardResolverService, EnergyMetricsService, UserService } from './services';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent,
+    resolve: { dashboardData: DashboardResolverService }
+  },
   { path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +32,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     ApiService,
+    DashboardResolverService,
     EnergyMetricsService,
     UserService
   ],
