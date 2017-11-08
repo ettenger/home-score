@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.accountNumber).subscribe(() => {
       // TODO: Redirect to dashboard
     }, err => {
-      this.errorMessage = err;
+      this.errorMessage = err.message;
     });
   }
 

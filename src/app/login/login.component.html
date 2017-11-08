@@ -1,7 +1,7 @@
-<form>
+<form (ngSubmit)="login()">
   <h2>Please sign in</h2>
   <label for="acctNumber">Account Number (hint: it's either 1 or 2)</label>
-  <input type="text" id="acctNumber" class="form-control" [(ngModel)]="accountNumber" placeholder="Account Number" required autofocus>
+  <input type="text" id="acctNumber" name="acctNumber" class="form-control" [(ngModel)]="accountNumber" placeholder="Account Number" required autofocus>
   <button [disabled]="!accountNumber" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>
-<div *ngIf="error" class="error">{{errorMessage}}</div>
+<div *ngIf="errorMessage" class="error">{{errorMessage}}</div>
