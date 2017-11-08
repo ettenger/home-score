@@ -178,6 +178,16 @@
   dependencies:
     "@angular-devkit/core" "0.0.20"
 
+"@types/c3@^0.4.45":
+  version "0.4.45"
+  resolved "https://registry.yarnpkg.com/@types/c3/-/c3-0.4.45.tgz#99fbd477f2dc6606d351f2eddd7f630b9af93db6"
+  dependencies:
+    "@types/d3" "^3"
+
+"@types/d3@^3":
+  version "3.5.39"
+  resolved "https://registry.yarnpkg.com/@types/d3/-/d3-3.5.39.tgz#e91ca01859624222fc23b46fe8789fb1e62937a5"
+
 "@types/jasmine@*":
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.6.3.tgz#586963bfdd35e38f24a0a0b63a438cf521292ed9"
@@ -897,6 +907,12 @@ bytes@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
 
+c3@^0.4.18:
+  version "0.4.18"
+  resolved "https://registry.yarnpkg.com/c3/-/c3-0.4.18.tgz#6f1c4409635263b8a3de607edbab4bdc678c62cb"
+  dependencies:
+    d3 "~3.5.0"
+
 cacache@^10.0.0:
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/cacache/-/cacache-10.0.0.tgz#3bba88bf62b0773fd9a691605f60c9d3c595e853"
@@ -1568,6 +1584,10 @@ cycle@1.0.x:
 cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
+
+d3@~3.5.0:
+  version "3.5.17"
+  resolved "https://registry.yarnpkg.com/d3/-/d3-3.5.17.tgz#bc46748004378b21a360c9fc7cf5231790762fb8"
 
 d@1:
   version "1.0.0"

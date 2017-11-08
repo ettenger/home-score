@@ -5,10 +5,10 @@ export class EnergyUsageTimeseries {
   }
 
   get dates(): string[] {
-    return Object.keys(this.dailyUsageData);
+    return this.dailyUsageData.map(d => Object.keys(d)[0]);
   }
 
   get energyUsages(): number[] {
-    return Object.values(this.dailyUsageData);
+    return this.dailyUsageData.map(d => Object.values(d)[0]);
   }
 }
