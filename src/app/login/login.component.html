@@ -1,10 +1,12 @@
 <form (ngSubmit)="login()">
   <h2>Please sign in</h2>
-  <label for="acctNumber">Account Number (hint: it's either 1 or 2)</label>
-  <input type="text" id="acctNumber" name="acctNumber" class="form-control" [(ngModel)]="accountNumber" placeholder="Account Number" required autofocus>
+  <div class="form-group">
+    <label for="acctNumber">Account Number (hint: it's either 1 or 2)</label>
+    <input type="text" id="acctNumber" name="acctNumber" class="form-control" [(ngModel)]="accountNumber" placeholder="Account Number" required autofocus>
+  </div>
   <button [disabled]="!accountNumber || isLoading" class="btn btn-lg btn-primary btn-block" type="submit">
     Sign in
     <span *ngIf="isLoading" class="glyphicon glyphicon-refresh"></span>
   </button>
+  <div *ngIf="errorMessage" class="error">{{errorMessage}}</div>
 </form>
-<div *ngIf="errorMessage" class="error">{{errorMessage}}</div>
