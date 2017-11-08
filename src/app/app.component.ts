@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from './services';
 
 @Component({
@@ -7,11 +8,14 @@ import { UserService } from './services';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public userService: UserService) {}
+  constructor(
+    private router: Router,
+    public userService: UserService
+  ) {}
 
   logout() {
     this.userService.logout().subscribe(() => {
-      // TODO: Redirect to login page
+      this.router.navigate(['/login']);
     });
   }
 }
