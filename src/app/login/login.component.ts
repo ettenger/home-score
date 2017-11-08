@@ -10,6 +10,7 @@ import { UserService } from '../services';
 export class LoginComponent implements OnInit {
   public accountNumber: string;
   public errorMessage: string;
+  public isLoading = false;
 
   constructor(
     private router: Router,
@@ -21,9 +22,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.errorMessage = null;
+    this.isLoading = true;
     this.userService.login(this.accountNumber).subscribe(() => {
       this.router.navigate(['/dashboard']);
     }, err => {
+      this.isLoading = false;
       this.errorMessage = err.message;
     });
   }
