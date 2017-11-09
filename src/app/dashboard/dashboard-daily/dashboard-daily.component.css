@@ -1,3 +1,7 @@
 ::ng-deep .avg-line > line {
   stroke: green;
 }
+
+::ng-deep .avg-line > text {
+  fill: green;
+}
