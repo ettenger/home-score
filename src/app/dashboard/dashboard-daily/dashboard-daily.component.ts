@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as c3 from 'c3';
-import { EnergyMetricsService, EnergyUsageTimeseries} from '../../services';
+import { EnergyMetricsService } from '../../services';
 
 @Component({
   selector: 'app-dashboard-daily',
@@ -32,12 +32,21 @@ export class DashboardDailyComponent implements OnInit {
             format: '%m/%d/%Y',
             count: 5
           }
+        },
+        y: {
+          label: {
+            text: 'Daily Energy Usage',
+            position: 'outer-middle'
+          }
         }
+      },
+      legend: {
+        show: false
       },
       grid: {
         y: {
           lines: [
-            { value: avgDailyUsage, text: 'Average', class: 'avg-line' }
+            { value: avgDailyUsage, text: 'Average Daily Usage', position: 'middle', class: 'avg-line' }
           ]
         }
       }

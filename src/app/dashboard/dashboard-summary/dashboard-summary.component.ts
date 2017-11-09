@@ -9,13 +9,11 @@ import { EnergyMetricsService, EnergySummary } from '../../services';
 })
 export class DashboardSummaryComponent implements OnInit {
   public energySummary: EnergySummary;
-  public scoreText: string;
 
   constructor(private energyMetricsService: EnergyMetricsService) { }
 
   ngOnInit() {
     this.energySummary = this.energyMetricsService.energySummary;
-    this.scoreText = this.energySummary.text;
     const chart = c3.generate({
       bindto: '#score-gauge',
       data: {
